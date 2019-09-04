@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class Rocket_bahavior : MonoBehaviour
 {
-
-    Rigidbody rigidbody;
+    new Rigidbody rigidbody;
     AudioSource audioSource;
     [SerializeField] float rotation_value = 80f;
     [SerializeField] float thrust_value = 80f;
