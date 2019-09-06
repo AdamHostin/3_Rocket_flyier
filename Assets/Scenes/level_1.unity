@@ -1804,6 +1804,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 246242453}
+    - target: {fileID: 3251296488251024211, guid: 311451225f9752546b1e490df377708e,
+        type: 3}
+      propertyPath: TriggerModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 311451225f9752546b1e490df377708e, type: 3}
 --- !u!1001 &3707982088176252006

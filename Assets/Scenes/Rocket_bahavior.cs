@@ -18,7 +18,7 @@ public class Rocket_bahavior : MonoBehaviour
     [SerializeField] AudioClip Level_win_sound;
     [SerializeField] AudioClip Death_sound;
 
-        int level_index;
+    int level_index;
     const int max_level = 2;
     enum state {Alive,Dead,ChangingLevel};
     state current_state;
