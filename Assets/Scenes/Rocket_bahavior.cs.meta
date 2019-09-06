@@ -3,7 +3,11 @@ guid: b6db4a307e2b38646b48a72587290a4e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Thrust_sound: {instanceID: 0}
+  - Game_win_sound: {instanceID: 0}
+  - Level_win_sound: {instanceID: 0}
+  - Death_sound: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
