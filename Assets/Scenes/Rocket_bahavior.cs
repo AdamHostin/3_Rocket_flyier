@@ -26,7 +26,7 @@ public class Rocket_bahavior : MonoBehaviour
     [SerializeField] ParticleSystem SuccessEffect;
 
     static int LevelIndex =0;
-    const int MaxLevelIndex = 2;
+    const int MaxLevelIndex = 3;
     enum state {Alive,Dead,ChangingLevel};
     state CurrentState;
 
@@ -57,7 +57,7 @@ public class Rocket_bahavior : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow))
         {
             if (!audioSource.isPlaying) audioSource.PlayOneShot(ThrustSound, ThrustSoundValue);
-            rigidbody.AddRelativeForce(Vector3.up * ThrustValue);
+            rigidbody.AddRelativeForce(Vector3.up * ThrustValue * Time.deltaTime);
             ThrustEffect.Play();
         }
         else
