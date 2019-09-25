@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Rocket_bahavior : MonoBehaviour
 {
-    Rigidbody rigidbody;
+    new Rigidbody rigidbody;
     AudioSource audioSource;
 
     
@@ -25,7 +25,7 @@ public class Rocket_bahavior : MonoBehaviour
     [SerializeField] ParticleSystem ThrustEffect;
     [SerializeField] ParticleSystem SuccessEffect;
 
-    int LevelIndex;
+    static int LevelIndex =0;
     const int MaxLevelIndex = 2;
     enum state {Alive,Dead,ChangingLevel};
     state CurrentState;
@@ -38,7 +38,6 @@ public class Rocket_bahavior : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
-        LevelIndex = 0;
         CurrentState = state.Alive;
     }
 
@@ -87,30 +86,42 @@ public class Rocket_bahavior : MonoBehaviour
             case "Friendly":
                 break;
             case "Finish":
-                CurrentState = state.ChangingLevel;                
+                CurrentState = state.ChangingLevel;
+                
                 if (MaxLevelIndex == LevelIndex)
                 {
-                    audioSource.PlayOneShot(GameWinSound);
-                    Invoke("LoadScene", Delay);
+                    FinishHandling(GameWinSound);
                 }
                 else
                 {
                     LevelIndex++;
-                    audioSource.PlayOneShot(LevelWinSound);
-                    Invoke("LoadScene", Delay);
+                    FinishHandling(LevelWinSound);
                 }
                 break;
             default:
-                print("you died");
-                CurrentState = state.Dead;
-                LevelIndex = 0;
-                if (audioSource.isPlaying) audioSource.Stop();
-                audioSource.PlayOneShot(DeathSound);
-                Invoke("LoadScene", Delay);
-
+                DeathHandling();
                 break;
         }
     }
+
+    private void DeathHandling()
+    {
+        print("you died");
+        CurrentState = state.Dead;
+        LevelIndex = 0;
+        if (audioSource.isPlaying) audioSource.Stop();
+        audioSource.PlayOneShot(DeathSound);
+        DeathEffect.Play();
+        Invoke("LoadScene", Delay);
+    }
+
+    private void FinishHandling(AudioClip sound)
+    {
+        audioSource.PlayOneShot(sound);
+        SuccessEffect.Play();
+        Invoke("LoadScene", Delay);
+    }
+
     void LoadScene()
     {
         SceneManager.LoadScene(LevelIndex);
