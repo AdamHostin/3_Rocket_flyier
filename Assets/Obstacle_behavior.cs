@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -24,8 +22,10 @@ public class Obstacle_behavior : MonoBehaviour
     {
         float cycle = Time.time / MovmentSpeed;
         if (Double.IsNaN(cycle) || Double.IsInfinity(cycle)) return;
+
         MovmentPossition = Mathf.Sin(cycle * 2f * Mathf.PI); //output (-1,+1)
         MovmentPossition = MovmentPossition/2 + 0.5f; //output (0,+1)
+
         Vector3 offset = ObstacleVector * MovmentPossition;
         transform.position = StartingPosition + offset;
     }

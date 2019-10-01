@@ -25,9 +25,10 @@ public class Rocket_bahavior : MonoBehaviour
     [SerializeField] ParticleSystem ThrustEffect;
     [SerializeField] ParticleSystem SuccessEffect;
 
+    enum state { Alive, Dead, ChangingLevel };
+
     static int LevelIndex =0;
-    const int MaxLevelIndex = 3;
-    enum state {Alive,Dead,ChangingLevel};
+    private const int MaxLevelIndex = 3;
     state CurrentState;
 
 
