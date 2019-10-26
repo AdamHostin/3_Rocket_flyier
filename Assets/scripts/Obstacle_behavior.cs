@@ -6,8 +6,10 @@ using UnityEngine;
 public class Obstacle_behavior : MonoBehaviour
 { 
     [SerializeField] Vector3 ObstacleVector;
-    [SerializeField] [Range(0, 1)] float MovmentPossition;
+    [SerializeField] [Range(-Mathf.PI/2, Mathf.PI/2)] float MovmentOfset = 0.0f;
     [SerializeField] float MovmentSpeed = 2f;
+    float MovmentPossition;
+
 
     private Vector3 StartingPosition;
 
@@ -23,7 +25,7 @@ public class Obstacle_behavior : MonoBehaviour
         float cycle = Time.time / MovmentSpeed;
         if (Double.IsNaN(cycle) || Double.IsInfinity(cycle)) return;
 
-        MovmentPossition = Mathf.Sin(cycle * 2f * Mathf.PI); //output (-1,+1)
+        MovmentPossition = Mathf.Sin(cycle * 2f * Mathf.PI + MovmentOfset); //output (-1,+1)
         MovmentPossition = MovmentPossition/2 + 0.5f; //output (0,+1)
 
         Vector3 offset = ObstacleVector * MovmentPossition;

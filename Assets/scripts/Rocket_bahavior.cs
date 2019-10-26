@@ -37,6 +37,7 @@ public class Rocket_bahavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Screen.SetResolution(1280, 720, true);
         rigidbody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
         CurrentState = state.Alive;
