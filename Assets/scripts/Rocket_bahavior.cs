@@ -29,8 +29,6 @@ public class Rocket_bahavior : MonoBehaviour
     enum state { Alive, Dead, ChangingLevel };
 
     bool collissionFlag = true;
-    static int LevelIndex =0;
-    private const int MaxLevelIndex = 6;
     state CurrentState;
 
 
@@ -60,13 +58,12 @@ public class Rocket_bahavior : MonoBehaviour
 
     private void Debug_handler()
     {
-        if (Input.GetKey(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.L))
         {
-            LevelIndex++;
             LoadScene();
         }
 
-        if (Input.GetKey(KeyCode.C)) collissionFlag = !collissionFlag;
+        if (Input.GetKeyDown(KeyCode.C)) collissionFlag = !collissionFlag;
     }
 
     private void ThrustHandling()
@@ -104,16 +101,7 @@ public class Rocket_bahavior : MonoBehaviour
                 break;
             case "Finish":
                 CurrentState = state.ChangingLevel;
-                
-                if (MaxLevelIndex == LevelIndex)
-                {
-                    FinishHandling(GameWinSound);
-                }
-                else
-                {
-                    LevelIndex++;
-                    FinishHandling(LevelWinSound);
-                }
+                FinishHandling(LevelWinSound);
                 break;
             default:
                 DeathHandling();
@@ -125,7 +113,6 @@ public class Rocket_bahavior : MonoBehaviour
     {
         print("you died");
         CurrentState = state.Dead;
-        LevelIndex = 0;
         if (audioSource.isPlaying) audioSource.Stop();
         audioSource.PlayOneShot(DeathSound);
         DeathEffect.Play();
@@ -140,8 +127,8 @@ public class Rocket_bahavior : MonoBehaviour
     }
 
     void LoadScene()
-    {
-        SceneManager.LoadScene(LevelIndex);
+    {              //LoadScene               With (active scene build index +1) mod number of scenes in build settings
+        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex +1) % SceneManager.sceneCountInBuildSettings); // load next scene
         CurrentState = state.Alive;
     }
 
