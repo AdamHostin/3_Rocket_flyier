@@ -1,6 +1,7 @@
 ﻿//https://freesound.org/people/jacksonacademyashmore/sounds/414209/ death sound
 //https://freesound.org/people/FunWithSound/sounds/456966/ success fanfare
 //https://freesound.org/people/GabrielAraujo/sounds/242501/ success point given
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,9 +28,11 @@ public class Rocket_bahavior : MonoBehaviour
 
     enum state { Alive, Dead, ChangingLevel };
 
+    bool collissionFlag = true;
     static int LevelIndex =0;
-    private const int MaxLevelIndex = 3;
+    private const int MaxLevelIndex = 6;
     state CurrentState;
+
 
 
 
@@ -46,12 +49,24 @@ public class Rocket_bahavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Debug.isDebugBuild) Debug_handler();
 
         if (CurrentState != state.Alive) return;
 
         ThrustHandling();
         RotationHandling();
 
+    }
+
+    private void Debug_handler()
+    {
+        if (Input.GetKey(KeyCode.L))
+        {
+            LevelIndex++;
+            LoadScene();
+        }
+
+        if (Input.GetKey(KeyCode.C)) collissionFlag = !collissionFlag;
     }
 
     private void ThrustHandling()
@@ -82,7 +97,7 @@ public class Rocket_bahavior : MonoBehaviour
 
     void OnCollisionEnter (Collision collision)
     {
-        if (CurrentState != state.Alive) return;
+        if (CurrentState != state.Alive || collissionFlag==false) return;
         switch (collision.gameObject.tag)
         {
             case "Friendly":

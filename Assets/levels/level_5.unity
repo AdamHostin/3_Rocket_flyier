@@ -1220,7 +1220,7 @@ PrefabInstance:
     - target: {fileID: 2482836982817046076, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 9.239292
+      value: 6.393261
       objectReference: {fileID: 0}
     - target: {fileID: 2482836982817046076, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
@@ -1250,7 +1250,7 @@ PrefabInstance:
     - target: {fileID: 2482836982817046072, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
       propertyPath: MovmentOfset
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2482836982817046072, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
@@ -1347,6 +1347,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 61.12055
       objectReference: {fileID: 0}
+    - target: {fileID: 1695044799092381725, guid: 323793cfaf34da943accbee1c631547e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: baa85fe274c0cdc49b075425658ae204, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 323793cfaf34da943accbee1c631547e, type: 3}
 --- !u!4 &1246487035 stripped
@@ -1690,7 +1695,7 @@ PrefabInstance:
     - target: {fileID: 2482836982817046076, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.16
+      value: -34.7
       objectReference: {fileID: 0}
     - target: {fileID: 2482836982817046076, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
@@ -1745,7 +1750,7 @@ PrefabInstance:
     - target: {fileID: 2482836982817046076, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 9.239292
+      value: 6.393261
       objectReference: {fileID: 0}
     - target: {fileID: 2482836982817046076, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
@@ -2249,7 +2254,7 @@ PrefabInstance:
     - target: {fileID: 2482836982817046076, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 9.239292
+      value: 6.393261
       objectReference: {fileID: 0}
     - target: {fileID: 2482836982817046076, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
@@ -2279,7 +2284,7 @@ PrefabInstance:
     - target: {fileID: 2482836982817046072, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
       propertyPath: MovmentOfset
-      value: 0.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2482836982817046072, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
@@ -2309,7 +2314,7 @@ PrefabInstance:
     - target: {fileID: 2482836982817046076, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.3
+      value: -27.84
       objectReference: {fileID: 0}
     - target: {fileID: 2482836982817046076, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
@@ -2364,7 +2369,7 @@ PrefabInstance:
     - target: {fileID: 2482836982817046076, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 9.239292
+      value: 6.393261
       objectReference: {fileID: 0}
     - target: {fileID: 2482836982817046076, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
@@ -2394,7 +2399,7 @@ PrefabInstance:
     - target: {fileID: 2482836982817046072, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
       propertyPath: MovmentOfset
-      value: -0.6
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2482836982817046072, guid: cf093732b5690e841a5cb34029d7e9e6,
         type: 3}
@@ -2489,7 +2494,7 @@ PrefabInstance:
     - target: {fileID: 1695044799092381723, guid: 323793cfaf34da943accbee1c631547e,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 7.324914
+      value: 8.1606865
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 323793cfaf34da943accbee1c631547e, type: 3}
