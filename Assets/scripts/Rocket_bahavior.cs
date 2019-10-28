@@ -2,9 +2,9 @@
 //https://freesound.org/people/FunWithSound/sounds/456966/ success fanfare
 //https://freesound.org/people/GabrielAraujo/sounds/242501/ success point given
 
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class Rocket_bahavior : MonoBehaviour
 {
@@ -87,14 +87,24 @@ public class Rocket_bahavior : MonoBehaviour
 
     private void RotationHandling()
     {
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            RocketRotation(-RotationValue);
+        }
+
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            RocketRotation(RotationValue);
+        }
+    }
+
+    private void RocketRotation(float RotateThisMuch)
+    {
         rigidbody.freezeRotation = true;
-
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) transform.Rotate(Vector3.back, RotationValue * Time.deltaTime);
-
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) transform.Rotate(Vector3.forward, RotationValue * Time.deltaTime);
-
+        transform.Rotate(Vector3.forward, RotateThisMuch * Time.deltaTime);
         rigidbody.freezeRotation = false;
     }
+
 
     void OnCollisionEnter (Collision collision)
     {
