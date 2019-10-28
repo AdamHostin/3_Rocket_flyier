@@ -4,6 +4,7 @@
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Rocket_bahavior : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class Rocket_bahavior : MonoBehaviour
 
     bool collissionFlag = true;
     state CurrentState;
+    public static int Score = 0;
+
 
 
 
@@ -42,6 +45,7 @@ public class Rocket_bahavior : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
         CurrentState = state.Alive;
+
     }
 
     // Update is called once per frame
@@ -127,8 +131,19 @@ public class Rocket_bahavior : MonoBehaviour
     }
 
     void LoadScene()
-    {              //LoadScene               With (active scene build index +1) mod number of scenes in build settings
-        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex +1) % SceneManager.sceneCountInBuildSettings); // load next scene
+    {
+        if (CurrentState == state.Dead)
+        {
+            Score = 0;
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            Score++;
+            //LoadScene               With (active scene build index +1) mod number of scenes in build setting
+            SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings); // load next scene
+        }
+
         CurrentState = state.Alive;
     }
 
