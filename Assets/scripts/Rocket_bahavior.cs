@@ -15,7 +15,7 @@ public class Rocket_bahavior : MonoBehaviour
     [SerializeField] float RotationValue = 80f;
     [SerializeField] float ThrustValue = 80f;
     [SerializeField] float ThrustSoundValue = 0.75f;
-    [SerializeField] float Delay = 1f;
+    [SerializeField] float Delay = 2f;
 
 
     [SerializeField] AudioClip ThrustSound;
@@ -32,10 +32,6 @@ public class Rocket_bahavior : MonoBehaviour
     bool collissionFlag = true;
     state CurrentState;
     public static int Score = 0;
-
-
-
-
 
 
     // Start is called before the first frame update
